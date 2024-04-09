@@ -23,8 +23,9 @@ const AuthFormLayoutDiv = styled.div`
     display: flex;
     justify-content: space-between;
     width:100%;
-    height:100vh; 
+    height:100%; 
     padding-top:12px;
+    padding-bottom:36px;
     background-image: url("form-background.jpg");
 
 ` 

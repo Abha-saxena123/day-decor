@@ -8,6 +8,7 @@ import {
 } from "./layout.styles";
 import { Header } from "./header/header";
 import { useRouter } from "next/router";
+import { Navbar } from "@/components/nav-bar/nav-bar";
 
 export const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
   const router = useRouter();
@@ -25,6 +26,7 @@ export const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
     <AppLayout>
       {/* <p>ssssssssss</p> */}
       {/* <Header /> */}
+      <Navbar />
       <AppContent>{children}</AppContent>
       {/* <Footer /> */}
     </AppLayout>

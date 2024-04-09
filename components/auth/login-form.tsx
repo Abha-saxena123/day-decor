@@ -39,7 +39,7 @@ export const LoginForm: React.FC = () => {
     //         // setLoginError(SIGNIN_ERRORS[router.query.error as keyof SignInErrors] ?? router.query.error);
     //     }
     // }, [router]);
-
+    const signInFB = () => { signIn(); }
     const handleForgotPassword = async () => {
         console.log("-------------");
         // /api/auth / forgot - password
@@ -86,8 +86,10 @@ export const LoginForm: React.FC = () => {
 
             <StyledDiv className="glow">
                 <IconWrapper>
-                    <GooglePlusSquareFilled style={{ fontSize: "42px" }} />
-                    <FacebookFilled style={{ fontSize: "42px" }} />
+                    <GooglePlusSquareFilled style={{ fontSize: "42px" }} onClick={() => signIn("google")} />
+
+                    <FacebookFilled style={{ fontSize: "42px" }} onClick={() => signIn("facebook")} />
+
                     <LinkedinFilled style={{ fontSize: "42px" }} />
                 </IconWrapper>
                 <Divider>or use your email</Divider>
@@ -100,16 +102,17 @@ export const LoginForm: React.FC = () => {
                     />
                 </FormInput>
                 <FormInput name="password" rules={[{ required: true, message: 'Please input your password!' }]}>
-                    <StyledInput.Password placeholder="Password" prefix={<UnlockOutlined />} />
-                    <ForgotPasswordButton>
-                        <a href="/forgot-password">Forgot Password?</a>
-                    </ForgotPasswordButton>
+                    <div>
+                        <StyledInput.Password placeholder="Password" prefix={<UnlockOutlined />} />
+                        <ForgotPasswordButton>
+                            <a href="/forgot-password">Forgot Password?</a>
+                        </ForgotPasswordButton>
+                    </div>
                 </FormInput>
                 <StyledFormWrapper >
                     <StyledButton type="primary" htmlType="submit">Login</StyledButton>
                 </StyledFormWrapper>
                 <p>Don't have an account? <a href="/sign-up">Sign Up</a></p>
-
             </StyledDiv>
         </Form>
     );

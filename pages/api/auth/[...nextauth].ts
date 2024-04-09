@@ -3,6 +3,8 @@ import axios from "axios";
 import { NextApiRequest, NextApiResponse } from "next";
 import NextAuth, { AuthOptions } from "next-auth";
 // import Providers from "next-auth/providers";
+import FacebookProvider from 'next-auth/providers/facebook';
+import GoogleProvider from 'next-auth/providers/google';
 import CredentialsProvider from "next-auth/providers/credentials";
 import getConfig from "next/config";
 
@@ -22,6 +24,7 @@ async function signIn({ email, password }: { email: string; password: string }) 
 const options = {
     providers: [
         CredentialsProvider({
+            id: "email",
             name: 'Sign in with Email',
             credentials: {
                 email: { label: 'Email', type: 'text' },
@@ -53,6 +56,7 @@ const options = {
                 }
             },
         }),
+
     ],
     session: {
         jwt: true,
