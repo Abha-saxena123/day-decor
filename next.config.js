@@ -5,6 +5,8 @@ module.exports = {
     domains: ["http://localhost:1337/", "http://localhost", "localhost"],
 
   },
+  output: 'export',
+  basePath: '/day-decor',
   serverRuntimeConfig: {
     rsaPrivateKey: process.env.RSA_PRIVATE_KEY,
     nextAuthSecret: process.env.NEXTAUTH_SECRET,
@@ -17,4 +19,3 @@ module.exports = {
     rsaPublicKey: process.env.RSA_PUBLIC_KEY,
   },
 };
-
