@@ -7,6 +7,7 @@ interface TypographyProps {
   fontType: FontType;
   className?: string;
   color?: string;
+  children: any;
 }
 
 export const Typography: FC<TypographyProps> = ({

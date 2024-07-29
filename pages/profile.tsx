@@ -8,6 +8,6 @@ export default function Profile() {
         return <div>Loading...</div>
     }
     console.log(session, "session")
-    return <ProfilePage userId={session?.token?.id as string | number} />
+    return <ProfilePage userId={(session as any)?.token?.id as string | number} />
 
 }

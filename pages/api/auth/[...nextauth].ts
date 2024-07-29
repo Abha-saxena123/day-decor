@@ -72,12 +72,14 @@ const options = {
             return '/'
         },
         session: async (session: {
-            name: string;
-            email: string;
-            picture?: undefined;
-            sub?: string;
-            id: number;
-            jwt: string;
+            token: {
+                name: string;
+                email: string;
+                picture?: undefined;
+                sub?: string;
+                id: number;
+                jwt: string;
+            }; user: any
         }) => {
             console.log("----------", session)
             if (session?.user) {

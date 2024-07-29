@@ -81,7 +81,7 @@ export const ProfilePage = ({ userId }: { userId: string | number }) => {
         destroyInactiveTabPane={false}
         items={
             TAB_CONTENT.map(({ id, label }: any, i) => {
-                const Component = renderComponent[id];
+                const Component = (renderComponent as any)[id];
                 return {
                     label,
                     key: id,

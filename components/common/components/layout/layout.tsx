@@ -25,11 +25,9 @@ export const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   return (
     <AppLayout>
-
       <Navbar />
       <CategoryMenus />
       <AppContent>{children}</AppContent>
-
     </AppLayout>
   );
 };

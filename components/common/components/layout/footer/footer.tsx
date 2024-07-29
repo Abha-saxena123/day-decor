@@ -1,33 +1,29 @@
 import React from "react";
 import Image from "next/image";
 import { FooterContainer, FooterContainerItem } from "./footer.styles";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import TwitterIcon from "@material-ui/icons/Twitter";
-import InstagramIcon from "@material-ui/icons/Instagram";
-import YouTubeIcon from "@material-ui/icons/YouTube";
-import FacebookIcon from "@material-ui/icons/Facebook";
+import { LinkedinOutlined } from '@ant-design/icons';
 
 export const FooterSocialMediaIcons = [
   {
-    Src: LinkedInIcon,
+    Src: LinkedinOutlined,
     name: "LinkedinIcon",
   },
-  {
-    Src: TwitterIcon,
-    name: "TwitterIcon",
-  },
-  {
-    Src: InstagramIcon,
-    name: "InstagramIcon",
-  },
-  {
-    Src: YouTubeIcon,
-    name: "YoutubeIcon",
-  },
-  {
-    Src: FacebookIcon,
-    name: "FacebookIcon",
-  },
+  // {
+  //   Src: TwitterIcon,
+  //   name: "TwitterIcon",
+  // },
+  // {
+  //   Src: InstagramIcon,
+  //   name: "InstagramIcon",
+  // },
+  // {
+  //   Src: YouTubeIcon,
+  //   name: "YoutubeIcon",
+  // },
+  // {
+  //   Src: FacebookIcon,
+  //   name: "FacebookIcon",
+  // },
 ];
 
 export const Footer: React.FC = () => {
@@ -35,7 +31,7 @@ export const Footer: React.FC = () => {
     <FooterContainer>
       {FooterSocialMediaIcons.map(({ Src, name }, index) => (
         <FooterContainerItem key={index}>
-          <Src/>
+          <Src />
         </FooterContainerItem>
       ))}
     </FooterContainer>
