@@ -7,6 +7,7 @@ module.exports = {
   },
   output: 'export',
   basePath: '/day-decor',
+  assetPrefix: '/day-decor/',
   serverRuntimeConfig: {
     rsaPrivateKey: process.env.RSA_PRIVATE_KEY,
     nextAuthSecret: process.env.NEXTAUTH_SECRET,
