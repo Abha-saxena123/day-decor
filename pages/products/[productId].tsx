@@ -70,8 +70,8 @@ const GetSegmentContent: FC<{ segment: string; productInfo?: string; reviews?: a
     switch (segment) {
         case "Shipping Details":
             return <ShippingDetails />;
-        case "Product Details":
-            return <ReactMarkdown remarkPlugins={[gfm]} children={productInfo} />;
+        // case "Product Details":
+        //     return <ReactMarkdown remarkPlugins={[gfm]} children={productInfo} />;
         case "Reviews":
             return <div>Reviews</div>;
     }

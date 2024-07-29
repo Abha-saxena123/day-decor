@@ -55,6 +55,7 @@ const Cart: React.FC = () => {
             setCartValue(items.reduce((total, item) => total + item.price * item.quantity, 0))
         };
         fetchData();
+        // eslint-disable-next-line no-use-before-define
     }, []);
 
     return (

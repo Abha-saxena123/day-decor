@@ -27,7 +27,7 @@ export default async (req: NextApiRequest,
         });
 
         res.status(200).end();
-    } catch (e) {
+    } catch (e: any) {
         res.status(400).send(e.response.data.message[0].messages[0]);
     }
 }

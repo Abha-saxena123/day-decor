@@ -29,7 +29,7 @@ export function useMutation({ id, params, keySuffix, pathParam }:
     // const datasource: DatasourceModel =
     //     registry().engine?.datasourceStorage.size &&
     //     registry().engine?.datasourceStorage.get(datasourceId)();
-    const { query: routerQuery } = useRouter();
+    // const { query: routerQuery } = useRouter();
     const swrKey = `${id}-${keySuffix}`
 
     const mutator = useCallback(
@@ -38,12 +38,11 @@ export function useMutation({ id, params, keySuffix, pathParam }:
                 arg: { payload, mutation, slugId },
             } = args;
             const path = slugId ? `${id}/${slugId}` : id;
-            console.log("-------------")
             return await (axios as any)[mutation](`${BASE_URL}/api/${path}`, payload
             )
 
         },
-        [params, id, routerQuery]
+        [id]
     );
     const { trigger, ...mutationState } = useSWRMutation(swrKey, mutator);
     return {
