@@ -47,7 +47,7 @@ export const OvalCardList: React.FC<{
                 {dividerText && <StyledDivider>{dividerText}</StyledDivider>}
                 {sectionTitle && <Styledtext>{sectionTitle}</Styledtext>}
                 <CatorgyListWrapper>
-                    {isLoading ? Array.from({ length: 4 }).map((_, i) => <OvalCardSkeleton />) : list?.map((catagory: OvalCardProps) => { return <OvalCard {...catagory} clickable={clickable} /> })}
+                    {isLoading ? Array.from({ length: 4 }).map((_, i) => <OvalCardSkeleton key={i} />) : list?.map((catagory: OvalCardProps, i: number) => { return <OvalCard {...catagory} clickable={clickable} key={i} /> })}
                 </CatorgyListWrapper>
             </Wrapper >
         );

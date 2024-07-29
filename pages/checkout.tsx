@@ -127,7 +127,6 @@ const CheckoutPage: React.FC = () => {
     return (
         <Wrapper>
             <CheckoutContainer title={"Checkout"} style={{ width: "100%", padding: "24px 40px" }}>
-                {/* <Title level={2}>Checkout</Title> */}
                 <Form
                     form={form}
                     name="checkout"

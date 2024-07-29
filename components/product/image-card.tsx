@@ -31,27 +31,27 @@ const CarouselWrapper = styled.div`
 
 `;
 
-const generateMenuItems = (productImages: any) => {
-    return productImages?.map((img, i) =>
-    ({
-        key: `${img.alt || img.src}_${i}`, label: (<Image
-            width={100}
-            height={100}
-            alt={img.src}
-            src={img.src}
-            key={i}
-        />)
-    })
+// const generateMenuItems = (productImages: any) => {
+//     return productImages?.map((img, i) =>
+//     ({
+//         key: `${img.alt || img.src}_${i}`, label: (<Image
+//             width={100}
+//             height={100}
+//             alt={img.src}
+//             src={img.src}
+//             key={i}
+//         />)
+//     })
 
-    )
-}
+//     )
+// }
 export const ProductCardImage: React.FC<ProductCardImageProps> = ({
     productImage, otherImages
 }) => {
     const carouselRef = useRef(null);
     const [selectedSlide, setSelectedSlide] = useState(0)
     const goToSlide = (currSlide: number) => {
-        carouselRef?.current?.goTo(currSlide, false);
+        (carouselRef?.current as any)?.goTo(currSlide, false);
         setSelectedSlide(currSlide)
     }
     const productImages = [productImage, ...otherImages];
@@ -72,14 +72,12 @@ export const ProductCardImage: React.FC<ProductCardImageProps> = ({
             </Carousel>
             <SmallImageWrapper>
                 {productImages?.map((img, i) =>
-                    <StyledDiv selected={selectedSlide === i} onClick={() => goToSlide(i)}>
+                    <StyledDiv selected={selectedSlide === i} key={i} onClick={() => goToSlide(i)}>
                         <Image
                             width={110}
                             height={110}
                             alt={img.src}
                             src={img.src}
-                            key={i}
-
                         />
                     </StyledDiv>)
                 }

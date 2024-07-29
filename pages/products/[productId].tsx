@@ -60,13 +60,13 @@ export default function CategoryProductList(props: any) {
                 <Typography.Title level={3}>{segment}</Typography.Title>
                 <GetSegmentContent segment={segment} productInfo={data?.productInfo} />
                 <RelatedProductHeading level={3}>Related Products</RelatedProductHeading>
-                <RelatedProductList category={data?.category} />
+                <RelatedProductList category={data?.category as string} />
             </ContentWrapper>
         </Wrapper>
     );
 };
 
-const GetSegmentContent: FC = ({ segment, productInfo, reviews }: { segment: string; productInfo?: string; reviews?: any }) => {
+const GetSegmentContent: FC<{ segment: string; productInfo?: string; reviews?: any }> = ({ segment, productInfo, reviews }) => {
     switch (segment) {
         case "Shipping Details":
             return <ShippingDetails />;
@@ -77,7 +77,7 @@ const GetSegmentContent: FC = ({ segment, productInfo, reviews }: { segment: str
     }
 }
 
-export const getServerSideProps = (async (ctx) => {
+export const getServerSideProps = (async (ctx: any) => {
     return { props: { productId: ctx.query.productId } }
 })
 

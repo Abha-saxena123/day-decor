@@ -11,6 +11,7 @@ import { MailOutlined, UnlockOutlined, GooglePlusSquareFilled, FacebookFilled, L
 import getConfig from "next/config";
 import styled from "styled-components";
 import axios from "axios";
+import Link from "next/link";
 
 
 const {
@@ -105,14 +106,14 @@ export const LoginForm: React.FC = () => {
                     <div>
                         <StyledInput.Password placeholder="Password" prefix={<UnlockOutlined />} />
                         <ForgotPasswordButton>
-                            <a href="/forgot-password">Forgot Password?</a>
+                            <Link passHref href="/forgot-password">Forgot Password?</Link>
                         </ForgotPasswordButton>
                     </div>
                 </FormInput>
                 <StyledFormWrapper >
                     <StyledButton type="primary" htmlType="submit">Login</StyledButton>
                 </StyledFormWrapper>
-                <p>Don't have an account? <a href="/sign-up">Sign Up</a></p>
+                <p>Don't have an account?  <Link passHref href="/sign-up">Sign Up</Link></p>
             </StyledDiv>
         </Form>
     );

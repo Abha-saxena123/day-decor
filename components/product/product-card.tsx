@@ -38,11 +38,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     discount,
     productInfo,
     stockQuantity,
-    id: productId,
+    productId,
 }) => {
-    const [quantity, setQuantity] = useState(1);
+    const [quantity, setQuantity] = useState<number | null>(1);
 
-    const handleQuantityChange = (value) => {
+    const handleQuantityChange = (value: number | null) => {
         setQuantity(value);
         // onChange(value);
     };
@@ -94,8 +94,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                 />
                 <CounterContainer>
                     <Button
-                        onClick={() => handleQuantityChange(quantity - 1)}
-                        disabled={quantity <= 1}
+                        onClick={() => handleQuantityChange(quantity && (quantity - 1))}
+                        disabled={!!(quantity && (quantity <= 1))}
                     >
                         -
                     </Button>
@@ -105,7 +105,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                         onChange={handleQuantityChange}
                         style={{ width: '50px' }}
                     />
-                    <Button onClick={() => handleQuantityChange(quantity + 1)}>
+                    <Button onClick={() => handleQuantityChange(quantity && (quantity + 1))}>
                         +
                     </Button>
                 </CounterContainer>
@@ -191,7 +191,7 @@ const StarWrapper = styled.div`
   padding: 2px; /* Adjust padding as needed */
 `;
 
-const PartialStarWrapper = styled.div`
+const PartialStarWrapper = styled.div<{ fillPercentage: number }>`
   padding: 2px; /* Adjust padding as needed */
   mask-image: linear-gradient(to right, white ${props => props.fillPercentage}%, transparent ${props => props.fillPercentage}%);
 `;

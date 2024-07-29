@@ -8,6 +8,7 @@ import { FormInput, StyledButton, StyledDiv, StyledFormWrapper, StyledH2, Styled
 import styled from "styled-components";
 import axios from "axios";
 import getConfig from "next/config";
+import Link from "next/link";
 
 interface SignInProps {
     username: string;
@@ -57,7 +58,7 @@ export const SignUpForm: React.FC = () => {
                 <StyledFormWrapper >
                     <StyledButton type="primary" htmlType="submit">Sign Up</StyledButton>
                 </StyledFormWrapper>
-                <p>Already have an account? <a href="/login">Login</a></p>
+                <p>Already have an account? <Link passHref href="/login">Login</Link></p>
             </StyledDiv>
         </Form >
     );

@@ -28,7 +28,7 @@ export const RelatedProductList: React.FC<{ category: string }> = ({ category })
     return (
         <Wrapper>
             <CatorgyListWrapper>
-                {isLoading ? Array.from({ length: 4 }).map((_, i) => <ProductDescriptionSkeletonLoader />) : list?.map((catagory: ProductCardProps, idx) => { return <ProductDescriptionCard {...catagory} key={idx} /> })}
+                {isLoading ? Array.from({ length: 4 }).map((_, i) => <ProductDescriptionSkeletonLoader key={i} />) : list?.map((catagory: ProductCardProps, idx) => { return <ProductDescriptionCard {...catagory} key={idx} /> })}
             </CatorgyListWrapper>
         </Wrapper >
     );

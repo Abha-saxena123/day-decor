@@ -49,7 +49,6 @@ export const ProfileOverview = ({ userId }: { userId: number | string }) => {
         dateOfBirth: "",
     });
 
-
     useEffect(() => {
         !isLoading && setProfile({
             username: user?.username as string,
@@ -59,7 +58,8 @@ export const ProfileOverview = ({ userId }: { userId: number | string }) => {
             city: user?.city,
             dateOfBirth: dayjs(user?.dateOfBirth),
         })
-    }, [isLoading])
+    }, [isLoading, user?.username, user?.lastname, user?.mobile, user?.email, user?.city, user?.dateOfBirth])
+
     if (isLoading) {
         return <div>Loading...</div>
     }

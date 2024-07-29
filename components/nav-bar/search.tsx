@@ -46,8 +46,8 @@ export const SearchComponent = () => {
 
 const content = (searchData: any) => {
     return <div style={{ display: "flex", flexDirection: "column", gap: "8px", width: "380px", maxHeight: "300px", overflowY: "auto" }}>{
-        searchData.map((searchData1: any) => {
-            return <SearchTile title={searchData1.title} image={searchData1.image} rating={searchData1.rating} />
+        searchData.map((searchData1: any, i: number) => {
+            return <SearchTile key={i} title={searchData1.title} image={searchData1.image} rating={searchData1.rating} />
         })
     }</div>
 };
