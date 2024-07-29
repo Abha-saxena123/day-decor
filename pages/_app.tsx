@@ -6,7 +6,8 @@ import { NextPage } from 'next';
 import { ReactElement, ReactNode } from 'react';
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
-
+import { CartProvider } from '@/components/cart/cart-context';
+import { SessionProvider } from 'next-auth/react';
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
@@ -32,9 +33,12 @@ export default function MyApp({ Component, pageProps, session }: AppProps & Cust
   const getLayout = Component.getLayout || getDefaultLayout;
 
   return <ConfigProvider theme={customTheme}>
-    <GlobalStyle />
-    {getLayout(<Component {...pageProps} />)}
-    {/* <Component {...pageProps} /> */}
+    <SessionProvider>
+      <GlobalStyle />
+      <CartProvider>
+        {getLayout(<Component {...pageProps} />)}
+      </CartProvider>
+    </SessionProvider>
   </ConfigProvider>
 }
 

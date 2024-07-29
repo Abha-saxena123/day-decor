@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   reactStrictMode: true,
+  images: {
+    domains: ["http://localhost:1337/", "http://localhost", "localhost"],
+
+  },
   serverRuntimeConfig: {
     rsaPrivateKey: process.env.RSA_PRIVATE_KEY,
     nextAuthSecret: process.env.NEXTAUTH_SECRET,

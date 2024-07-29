@@ -9,7 +9,6 @@ export const AppWrapper = styled.div`
 `;
 
 export const AppContent = styled.main`
-  
 `;
 
 export const AppSideImage = styled.div`

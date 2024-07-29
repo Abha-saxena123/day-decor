@@ -56,16 +56,16 @@ export const LoginForm: React.FC = () => {
         setLoginError(null);
         // setLoader(true);
         const encryptedPassword = await encryptData(password);
-        console.log(encryptedPassword)
+        // console.log(encryptedPassword)
 
-        const res = await signIn("credentials", {
+        const res = await signIn("email", {
             redirect: true,
             email: email,
             password: password,
         });
 
         if (res?.error) {
-            console.log(res.error)
+            // console.log(res.error)
             setLoginError(res?.error);
         }
 
@@ -86,7 +86,7 @@ export const LoginForm: React.FC = () => {
 
             <StyledDiv className="glow">
                 <IconWrapper>
-                    <GooglePlusSquareFilled style={{ fontSize: "42px" }} onClick={() => signIn("google")} />
+                    <GooglePlusSquareFilled style={{ fontSize: "42px" }} onClick={() => signIn("google", { callbackUrl: "http://localhost:1337/auth/google/callback" })} />
 
                     <FacebookFilled style={{ fontSize: "42px" }} onClick={() => signIn("facebook")} />
 

@@ -3,7 +3,7 @@ import axios from "axios";
 import { NextApiRequest, NextApiResponse } from "next";
 import NextAuth, { AuthOptions } from "next-auth";
 // import Providers from "next-auth/providers";
-import FacebookProvider from 'next-auth/providers/facebook';
+// import FacebookProvider from 'next-auth/providers/facebook';
 import GoogleProvider from 'next-auth/providers/google';
 import CredentialsProvider from "next-auth/providers/credentials";
 import getConfig from "next/config";
@@ -23,6 +23,11 @@ async function signIn({ email, password }: { email: string; password: string }) 
 
 const options = {
     providers: [
+        GoogleProvider({
+            id: "google",
+            clientId: process.env.GOOGLE_ID as string,
+            clientSecret: process.env.GOOGLE_SECRET as string
+        }),
         CredentialsProvider({
             id: "email",
             name: 'Sign in with Email',
@@ -56,8 +61,8 @@ const options = {
                 }
             },
         }),
-
     ],
+    // database: process.env.NEXT_PUBLIC_DATABASE_URL,
     session: {
         jwt: true,
     },
@@ -74,15 +79,22 @@ const options = {
             id: number;
             jwt: string;
         }) => {
+            console.log("----------", session)
+            if (session?.user) {
+                session.user.jwt = session.token?.jwt;
+                session.user.id = session.token?.id;
+            }
             return Promise.resolve(session);
         },
-        jwt: async ({ token, user }: any) => {
-            console.log("S",)
+        jwt: async ({ token, user, account }: any) => {
             const isSignIn = user ? true : false;
             if (isSignIn) {
-                token.id = user.id;
-                token.jwt = user.jwt;
-
+                const response = await fetch(
+                    `${process.env.API_URL}/api/auth/${account.provider}/callback?access_token=${account?.access_token}`
+                );
+                const data = await response.json();
+                token.jwt = data.jwt;
+                token.id = data.user?.id;
             }
             return Promise.resolve(token);
         },

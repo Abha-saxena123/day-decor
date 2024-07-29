@@ -9,6 +9,7 @@ import {
 import { Header } from "./header/header";
 import { useRouter } from "next/router";
 import { Navbar } from "@/components/nav-bar/nav-bar";
+import { CategoryMenus } from "@/components/nav-bar/menu";
 
 export const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
   const router = useRouter();
@@ -24,11 +25,11 @@ export const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   return (
     <AppLayout>
-      {/* <p>ssssssssss</p> */}
-      {/* <Header /> */}
+
       <Navbar />
+      <CategoryMenus />
       <AppContent>{children}</AppContent>
-      {/* <Footer /> */}
+
     </AppLayout>
   );
 };

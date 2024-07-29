@@ -1,42 +1,22 @@
-import { OvalCard } from "@/components/common/components/card/oval-card";
-import { ProductDescriptionCard } from "@/components/common/components/card/product-description-card";
+import { Banners } from "@/components/landing-page/banners";
+import { BestSellingProductList } from "@/components/landing-page/best-selling-product-list";
 import { OvalCardList } from "@/components/landing-page/catagory-list";
-import { ProductCard } from "@/components/product/product-card";
+import styled from "styled-components";
 
+const LandingPageWrapper = styled.div`
+display:flex;
+flex-direction:column;
+gap:32px;
+align-items:left;
+`
 
 export default function Home() {
   return (
-    <div>
-      <ProductDescriptionCard
-        rating={318}
-        star={4.5}
-        sp={995}
-        mp={1375}
-        image={"https://www.w3schools.com/css/paris.jpg"}
-        discount={28}
-        title="Magic Cuppa"
-        tags={[{ icon: <span>&#128205;</span>, name: "Personalized" }, { icon: <span>&#128205;</span>, name: "Same Day Delivery" }]}
-      />
-      {/* <OvalCardList list={d} sectionTitle="Popular Categories" dividerText="Shop By Category" />
-      <OvalCardList list={d} sectionTitle="We Are Available at" dividerText="Shop By Places" clickable={false} /> */}
-    </div>
+    <LandingPageWrapper>
+      <Banners />
+      <OvalCardList sectionTitle="Popular Categories" dividerText="Shop By Categories" id={"categories"} filters={{ "filters[tags][tagName][$in]": "Popular Category" }} />
+      <BestSellingProductList />
+      <OvalCardList sectionTitle="We Are Available at" dividerText="Shop By Places" clickable={false} id={"service-available-ats"} />
+    </LandingPageWrapper>
   )
 }
-
-const d = [
-  {
-    image: "https://www.w3schools.com/css/paris.jpg",
-    text: "cake"
-  },
-  {
-    image: "https://www.w3schools.com/css/img_forest.jpg",
-    text: "forest"
-  },
-  {
-    image: "https://www.w3schools.com/css/paris.jpg",
-    text: "cake"
-  },
-  {
-    image: "https://www.w3schools.com/css/img_forest.jpg",
-    text: "forest"
-  }]
