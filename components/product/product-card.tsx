@@ -122,10 +122,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                 <Button icon={<ShareAltOutlined />} style={{ color: "#f2266b", fontWeight: "bold", fontSize: "18px", border: "1px solid #f2266b", padding: 0, height: "40px", borderRadius: "10px" }} > Share</Button>
             </StyledButtons>
             <Divider style={{ display: "flex" }} />
-            <div>
+            {/* <div>
                 {productInfo && <ReactMarkdown remarkPlugins={[gfm]} children={getTruncatedText(productInfo, 210).smallText} />}
                 <Button type="link">read more</Button>
-            </div>
+            </div> */}
         </InfoWrapper >
     );
 };
