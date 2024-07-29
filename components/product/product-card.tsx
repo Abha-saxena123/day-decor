@@ -130,10 +130,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     );
 };
 
-
-const Styledh5 = styled.h5`
-color:grey;
-`
 const StyledTitle = styled.h1`
 margin:0;
 margin-bottom:4px;
