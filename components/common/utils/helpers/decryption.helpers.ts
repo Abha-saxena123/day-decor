@@ -7,7 +7,7 @@ export const decryptData = (encryptedMessage: string, privateKey = "RSA_PRIVATE_
     type: 'pkcs1',
     padding: crypto.constants.RSA_PKCS1_PADDING,
   };
-  console.log(crypto)
+  // console.log(crypto)
 
   const decryptedMessage = crypto.privateDecrypt(rsaPrivateKey, Buffer.from(encryptedMessage, 'base64'));
 
